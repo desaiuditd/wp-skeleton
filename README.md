@@ -20,6 +20,54 @@ Much of the philosophy behind Bedrock is inspired by the [Twelve-Factor App](htt
 
 Bedrock documentation is available at [https://roots.io/bedrock/docs/](https://roots.io/bedrock/docs/).
 
+# Prerequisite
+
+## NodeJS
+
+Install NodeJS via nodenv - Node Version Manager. https://github.com/nodenv/nodenv
+
+Follow the instructions from here - https://github.com/nodenv/nodenv#installation
+
+### Mac
+
+```bash
+brew install nodenv
+```
+
+### Linux
+
+For Linux/Ubuntu, to install nodenv, follow the instructions from here - https://github.com/nodenv/nodenv#basic-github-checkout
+
+## Composer
+
+Refer this installation guide for Composer - https://getcomposer.org/doc/00-intro.md#installation-linux-unix-macos
+
+First, download the `composer.phar`
+
+And then install it globally on your machine.
+
+```bash
+mv composer.phar /usr/local/bin/composer
+```
+
+## Yarn
+
+### Mac
+
+```bash
+brew install yarn
+```
+
+### Linux
+
+Follow the instructions from here - https://yarnpkg.com/en/docs/install#debian-stable
+
+```bash
+curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+sudo apt-get update && sudo apt-get install yarn
+```
+
 # Local Development
 
 - Install EasyEngine
