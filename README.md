@@ -1,7 +1,7 @@
 # wp-skeleton
 A skeleton repo as a starter for WordPress websites using Bedrock. https://roots.io/bedrock/
 
-# [Bedrock](https://roots.io/bedrock/)
+# Bedrock
 
 Bedrock is a modern WordPress stack that helps you get started with the best development tools and project structure.
 
