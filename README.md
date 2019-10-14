@@ -26,6 +26,7 @@ Bedrock documentation is available at [https://roots.io/bedrock/docs/](https://r
 mkdir my-wordpress-website
 cd my-wordpress-website
 wget -qO wps bit.ly/wp-skeleton && bash wps
+rm -rf wps
 ```
 
 # Prerequisite
