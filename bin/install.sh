@@ -1,5 +1,6 @@
 #!/bin/bash
 
+shopt -s dotglob
 wget https://github.com/desaiuditd/wp-skeleton/archive/master.zip
 unzip master.zip
 mv wp-skeleton-master/* .
