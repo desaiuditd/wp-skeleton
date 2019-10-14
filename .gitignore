@@ -19,7 +19,7 @@ web/.htaccess
 !.env.example
 
 # Composer
-/vendor
+vendor
 
 # WP-CLI
 wp-cli.local.yml
@@ -32,3 +32,6 @@ wp-cli.local.yml
 
 # OS specific files
 .DS_Store
+
+# Packages
+node_modules

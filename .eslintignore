@@ -1,0 +1,12 @@
+!.babelrc.js
+!.eslintrc.js
+!.huskyrc.js
+!.stylelintrc.js
+**/*.min.js
+**/dist/*
+**/node_modules/**
+**/plugins/brightcove-video-connect/**
+**/tinymce/contextmenu.js
+**/tinymce/searchreplace.js
+**/tinymce/spellchecker.js
+**/vendor/**

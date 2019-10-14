@@ -1,7 +1,7 @@
 {
 	"name": "wp-skeleton",
 	"type": "project",
-	"license": "MIT",
+	"license": "GPLv3",
 	"description": "A skeleton repo as a starter for WordPress websites using Bedrock.",
 	"homepage": "https://github.com/desaiuditd/wp-skeleton",
 	"authors": [
