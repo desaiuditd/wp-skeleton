@@ -20,6 +20,14 @@ Much of the philosophy behind Bedrock is inspired by the [Twelve-Factor App](htt
 
 Bedrock documentation is available at [https://roots.io/bedrock/docs/](https://roots.io/bedrock/docs/).
 
+# How to use this skeleton
+
+```bash
+mkdir my-wordpress-website
+cd my-wordpress-website
+wget -qO wps bit.ly/wp-skeleton && bash wps
+```
+
 # Prerequisite
 
 ## NodeJS
