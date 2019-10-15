@@ -5,8 +5,5 @@
 **/*.min.js
 **/dist/*
 **/node_modules/**
-**/plugins/brightcove-video-connect/**
-**/tinymce/contextmenu.js
-**/tinymce/searchreplace.js
-**/tinymce/spellchecker.js
 **/vendor/**
+**/web/wp/**
