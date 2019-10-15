@@ -124,3 +124,5 @@ Config::define( 'WP_CONTENT_URL', Config::get( 'WP_HOME' ) . Config::get( 'CONTE
 # Plugins
 
 Add plugin(s) in `web/app/mu-plugins/` as you would for a normal WordPress site.
+
+Also, whitelist the plugin in `.gitignore` file, so that you can commit the files into the repo.
