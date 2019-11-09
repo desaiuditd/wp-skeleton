@@ -61,6 +61,8 @@ mv composer.phar /usr/local/bin/composer
 
 # Local Development
 
+- Install composer dependencies. `composer install`
+- Install npm package dependencies. `npm install`
 - Install [Local by Flywheel](https://localbyflywheel.com/).
 - Create a new site in Local by Flywheel. [Refer](https://roots.io/guides/local-bedrock-development-with-local-by-flywheel/)
 - Delete everything inside the `public` folder under Local Sites.
@@ -68,11 +70,12 @@ mv composer.phar /usr/local/bin/composer
 - Deploy this git repository under `app` folder.
 	- `~/Local\ Sites/example/app/`
 - Create `.env` file for the project.
-    - `cp .env.example .env`
-    - Change these values, if needed. `DB_NAME`, `DB_USER`, `DB_PASSWORD`, `DB_HOST`. (Optional, in case of default setup with Local by Flywheel)
+	- `cp .env.example .env`
+	- Change these values, if needed. `DB_NAME`, `DB_USER`, `DB_PASSWORD`, `DB_HOST`. (Optional, in case of default setup with Local by Flywheel)
 	- Set WP_HOME as `https://example.test`
 	- Generate secretes with [WordPress salts generator](https://roots.io/salts.html) provided by Roots.
 		- `AUTH_KEY`, `SECURE_AUTH_KEY`, `LOGGED_IN_KEY`, `NONCE_KEY`, `AUTH_SALT`, `SECURE_AUTH_SALT`, `LOGGED_IN_SALT`, `NONCE_SALT`
+- Restart the site from Local by Flywheel.
 - Access WordPress admin at `https://example.test/wp/wp-admin/`
 
 # Themes
