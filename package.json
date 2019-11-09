@@ -7,14 +7,14 @@
   "license": "GPLv3",
   "private": true,
   "scripts": {
-	"build": "NODE_ENV=production webpack --mode=production --config webpack.config.js",
-	"lint:js": "eslint .eslintrc.js .huskyrc.js .stylelintrc.js babel.config.js lint-staged.config.js postcss.config.js webpack.config.js web/app/mu-plugins",
-	"lint:js:fix": "eslint .eslintrc.js .huskyrc.js .stylelintrc.js babel.config.js lint-staged.config.js postcss.config.js webpack.config.js web/app/mu-plugins --fix",
-	"lint:scss": "stylelint \"web/app/mu-plugins/**/*.scss\" --syntax scss",
+    "build": "NODE_ENV=production webpack --mode=production --config webpack.config.js",
+    "lint:js": "eslint .eslintrc.js .huskyrc.js .stylelintrc.js babel.config.js lint-staged.config.js postcss.config.js webpack.config.js web/app/mu-plugins",
+    "lint:js:fix": "eslint .eslintrc.js .huskyrc.js .stylelintrc.js babel.config.js lint-staged.config.js postcss.config.js webpack.config.js web/app/mu-plugins --fix",
+    "lint:scss": "stylelint \"web/app/mu-plugins/**/*.scss\" --syntax scss",
     "lint:css": "stylelint \"web/app/mu-plugins/**/*.css\"",
-    "lint:style": "yarn lint:scss && yarn lint:css",
-    "lint": "yarn lint:js && yarn lint:style",
-    "lint:fix": "yarn lint:js:fix && yarn lint:style",
+    "lint:style": "npm run lint:scss && npm run lint:css",
+    "lint": "npm run lint:js && npm run lint:style",
+    "lint:fix": "npm run lint:js:fix && npm run lint:style",
     "start": "NODE_ENV=development webpack-dev-server --mode=development --config webpack.config.js"
   },
   "dependencies": {

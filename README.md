@@ -59,24 +59,6 @@ And then install it globally on your machine.
 mv composer.phar /usr/local/bin/composer
 ```
 
-## Yarn
-
-### Mac
-
-```bash
-brew install yarn
-```
-
-### Linux
-
-Follow the instructions from here - https://yarnpkg.com/en/docs/install#debian-stable
-
-```bash
-curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
-echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-sudo apt-get update && sudo apt-get install yarn
-```
-
 # Local Development
 
 - Install EasyEngine
