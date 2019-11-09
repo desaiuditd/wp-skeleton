@@ -61,28 +61,23 @@ mv composer.phar /usr/local/bin/composer
 
 # Local Development
 
-- Install EasyEngine
-    - Mac: `brew install easyengine`
-	- Linux: `wget -qO ee rt.cx/ee4 && sudo bash ee`
-- Create a new site in EasyEngine
-    - `ee site create example.test --type=wp --public-dir=web --cache --local-db --with-local-redis`
-    - Note down `DB_NAME`, `DB_USER`, `DB_PASSWORD`. We will need these later.
-    - Note down `DB_ROOT_PASSWORD`, `WP_USERNAME`, `WP_PASSWORD` just for information.
-- Delete the `htdocs` folder under easyengine installation.
-    - `rm -rf ~/easyengine/sites/example.test/app/htdocs/*`
-- Deploy this git repository under `htdocs` folder.
+- Install [Local by Flywheel](https://localbyflywheel.com/).
+- Create a new site in Local by Flywheel. [Refer](https://roots.io/guides/local-bedrock-development-with-local-by-flywheel/)
+- Delete everything inside the `public` folder under Local Sites.
+	- `rm -rf ~/Local\ Sites/example/app/public/*`
+- Deploy this git repository under `app` folder.
+	- `~/Local\ Sites/example/app/`
 - Create `.env` file for the project.
     - `cp .env.example .env`
-    - Replace values which we noted earlier. `DB_NAME`, `DB_USER`, `DB_PASSWORD`.
-    - Set DB_HOST as `db:3306` for easyengine.
-	- Set WP_HOME as `http://example.test`
+    - Change these values, if needed. `DB_NAME`, `DB_USER`, `DB_PASSWORD`, `DB_HOST`. (Optional, in case of default setup with Local by Flywheel)
+	- Set WP_HOME as `https://example.test`
 	- Generate secretes with [WordPress salts generator](https://roots.io/salts.html) provided by Roots.
 		- `AUTH_KEY`, `SECURE_AUTH_KEY`, `LOGGED_IN_KEY`, `NONCE_KEY`, `AUTH_SALT`, `SECURE_AUTH_SALT`, `LOGGED_IN_SALT`, `NONCE_SALT`
-- Access WordPress admin at `http://example.test/wp/wp-admin/`
+- Access WordPress admin at `https://example.test/wp/wp-admin/`
 
 # Themes
 
-Add theme(s) in `web/app/themes/` as you would for a normal WordPress site.
+Add theme(s) in `public/app/themes/` as you would for a normal WordPress site.
 
 Also, override the `WP_DEFAULT_THEME` constant to set the theme directory in `config/application.php`
 
@@ -105,6 +100,6 @@ Config::define( 'WP_CONTENT_URL', Config::get( 'WP_HOME' ) . Config::get( 'CONTE
 
 # Plugins
 
-Add plugin(s) in `web/app/mu-plugins/` as you would for a normal WordPress site.
+Add plugin(s) in `public/app/mu-plugins/` as you would for a normal WordPress site.
 
 Also, whitelist the plugin in `.gitignore` file, so that you can commit the files into the repo.

@@ -3,6 +3,8 @@ module.exports = {
 	parser: 'babel-eslint',
 	extends: [
 		'eslint:recommended',
+		'plugin:import/errors',
+		'plugin:import/warnings',
 		'plugin:react/recommended',
 	],
 	plugins: [
@@ -14,15 +16,11 @@ module.exports = {
 		es6: true,
 		node: true,
 	},
-	globals: {
-		_: false,
-		Backbone: false,
-		jQuery: false,
-		lodash: false,
-		moment: false,
-		wp: false,
+	settings: {
+		// Will look for webpack.config.js as a sibling of the first ancestral package.json.
+		'import/resolver': 'webpack',
+		react: { version: 'detect' },
 	},
-	settings: { react: { version: 'detect' } },
 	rules: {
 		'array-bracket-spacing': [
 			'error',
@@ -44,6 +42,8 @@ module.exports = {
 		'eol-last': [ 'error', 'unix' ],
 		eqeqeq: [ 'error' ],
 		'func-call-spacing': [ 'error' ],
+		'import/no-amd': [ 'error' ],
+		'import/no-commonjs': [ 'error' ],
 		indent: [
 			'error',
 			'tab',
@@ -59,6 +59,10 @@ module.exports = {
 		'linebreak-style': [ 'error', 'unix' ],
 		'no-console': [ 'error', { allow: [ 'warn', 'error' ] } ],
 		'no-mixed-spaces-and-tabs': [ 'error' ],
+		'no-multi-spaces': [
+			'error',
+			{ ignoreEOLComments: true },
+		],
 		'no-multiple-empty-lines': [
 			'error',
 			{ max: 1 },
@@ -92,6 +96,7 @@ module.exports = {
 		'prefer-const': 'error',
 		'quote-props': [ 'error', 'as-needed' ],
 		quotes: [ 'error', 'single' ],
+		'react-hooks/exhaustive-deps': 'error',
 		'react-hooks/rules-of-hooks': 'error',
 		'react/display-name': 'off',
 		'react/jsx-boolean-value': [ 'error', 'never' ],
@@ -100,10 +105,11 @@ module.exports = {
 		'react/jsx-curly-brace-presence': 'error',
 		'react/jsx-curly-spacing': [
 			'error',
-			{ when: 'always'  },
+			{ when: 'always' },
 		],
 		'react/jsx-equals-spacing': [ 'error', 'never' ],
 		'react/jsx-fragments': 'error',
+		'react/jsx-handler-names': 'error',
 		'react/jsx-indent-props': [ 'error', 'tab' ],
 		'react/jsx-indent': [ 'error', 'tab' ],
 		'react/jsx-pascal-case': 'error',
@@ -160,4 +166,18 @@ module.exports = {
 			{ exceptRange: true },
 		],
 	},
+	overrides: [
+		{
+			files: [
+				'.eslintrc.js',
+				'.huskyrc.js',
+				'.stylelintrc.js',
+				'babel.config.js',
+				'lint-staged.config.js',
+				'postcss.config.js',
+				'webpack.config.js',
+			],
+			rules: { 'import/no-commonjs': 'off' },
+		},
+	],
 };

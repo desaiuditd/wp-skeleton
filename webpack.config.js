@@ -6,7 +6,7 @@ const CopyWebpackPlugin = require( 'copy-webpack-plugin' );
 const MiniCssExtractPlugin = require( 'mini-css-extract-plugin' );
 
 // The base directory, an absolute path, for resolving entry points.
-const context = path.resolve( __dirname, 'web/app/mu-plugins' );
+const context = path.resolve( __dirname, 'public/app/mu-plugins' );
 
 /*
  * Bundled files map.
@@ -23,7 +23,7 @@ module.exports = function ( env, argv ) {
 		context,
 		entry: bundleMap,
 		output: {
-			path: path.resolve( __dirname, 'web/dist' ),
+			path: path.resolve( __dirname, 'public/dist' ),
 			// The filename of the entry chunk as relative path inside the output.path directory.
 			filename: '[name].js',
 		},

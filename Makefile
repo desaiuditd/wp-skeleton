@@ -16,10 +16,10 @@ lint-js-fix:
 lint-php: lint-phpmd lint-phpcs
 
 lint-phpmd:
-	./vendor/bin/phpmd web/app,config text phpmd.xml --suffixes php
+	./vendor/bin/phpmd public/app,config text phpmd.xml --suffixes php
 
 lint-phpcs:
-	./vendor/bin/phpcs -p -s -v --standard=phpcs.xml --extensions=php ./web/app ./config
+	./vendor/bin/phpcs -p -s -v --standard=phpcs.xml --extensions=php ./public/app ./config
 
 lint-scss:
 	npm run lint:scss

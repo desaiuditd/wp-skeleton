@@ -7,13 +7,13 @@
 	<description>WordPress Skeleton Coding Standards</description>
 
 	<!-- Exclude WP Core folders and files from being checked. -->
-	<exclude-pattern>web/wp/*</exclude-pattern>
+	<exclude-pattern>public/wp/*</exclude-pattern>
 
 	<!-- Exclude the Composer Vendor directory. -->
 	<exclude-pattern>vendor</exclude-pattern>
 
 	<!-- Exclude the Plugins directory. -->
-	<exclude-pattern>web/app/plugins</exclude-pattern>
+	<exclude-pattern>public/app/plugins</exclude-pattern>
 
 	<!-- Exclude the Node Modules directory. -->
 	<exclude-pattern>node_modules/*</exclude-pattern>
