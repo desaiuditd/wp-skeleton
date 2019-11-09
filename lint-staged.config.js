@@ -1,5 +1,5 @@
 module.exports = {
 	'*.css':  [ 'stylelint' ],
-	'*.js':   [ 'eslint webpack.config.babel.js' ],
+	'*.js':   [ 'eslint webpack.config.js' ],
 	'*.scss': [ 'stylelint --syntax scss' ],
 };
