@@ -31,21 +31,37 @@ rm -rf wps
 
 # Prerequisite
 
+## Homebrew
+
+Install Homebrew in order to install nodenv.
+
+### MacOS
+
+```bash
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+```
+
+Follow the instructions from here - https://docs.brew.sh/Installation
+
+### Ubuntu
+
+```bash
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
+echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.profile
+eval $($(brew --prefix)/bin/brew shellenv)
+```
+
+Follow the instructions from here - https://docs.brew.sh/Homebrew-on-Linux
+
 ## NodeJS
 
 Install NodeJS via nodenv - Node Version Manager. https://github.com/nodenv/nodenv
 
 Follow the instructions from here - https://github.com/nodenv/nodenv#installation
 
-### Mac
-
 ```bash
 brew install nodenv
 ```
-
-### Linux
-
-For Linux/Ubuntu, to install nodenv, follow the instructions from here - https://github.com/nodenv/nodenv#basic-github-checkout
 
 ## Composer
 
