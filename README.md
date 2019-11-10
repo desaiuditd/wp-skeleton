@@ -85,6 +85,8 @@ mv composer.phar /usr/local/bin/composer
 	- `rm -rf ~/Local\ Sites/example/app/public/*`
 - Deploy this git repository under `app` folder.
 	- `~/Local\ Sites/example/app/`
+	- Use [Deploy Reloaded](https://marketplace.visualstudio.com/items?itemName=mkloubert.vscode-deploy-reloaded) VSCode extension for this.
+	- Use [this config](https://gist.github.com/desaiuditd/88d99e41a895d839291d65ad86d1eea7) to deploy the code.
 - Create `.env` file for the project.
 	- `cp .env.example .env`
 	- Change these values, if needed. `DB_NAME`, `DB_USER`, `DB_PASSWORD`, `DB_HOST`. (Optional, in case of default setup with Local by Flywheel)
