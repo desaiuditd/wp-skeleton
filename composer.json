@@ -1,5 +1,5 @@
 {
-  "name": "wp-skeleton",
+  "name": "desaiuditd/wp-skeleton",
   "type": "project",
   "license": "GPLv3",
   "description": "A skeleton repo as a starter for WordPress websites using Bedrock.",
