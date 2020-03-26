@@ -16,6 +16,11 @@ module.exports = {
 		es6: true,
 		node: true,
 	},
+	globals: {
+		_: false,
+		jQuery: false,
+		wp: false,
+	},
 	settings: {
 		// Will look for webpack.config.js as a sibling of the first ancestral package.json.
 		'import/resolver': 'webpack',
@@ -33,12 +38,14 @@ module.exports = {
 		],
 		'block-spacing': [ 'error' ],
 		'brace-style': [ 'error', '1tbs' ],
+		'capitalized-comments': [ 'error', 'always', { ignoreConsecutiveComments: true } ],
 		'comma-dangle': [ 'error', 'always-multiline' ],
 		'comma-spacing': [
 			'error',
 			{ before: false, after: true },
 		],
 		'computed-property-spacing': [ 'error', 'always' ],
+		curly: [ 'error', 'all' ],
 		'eol-last': [ 'error', 'unix' ],
 		eqeqeq: [ 'error' ],
 		'func-call-spacing': [ 'error' ],
@@ -57,11 +64,27 @@ module.exports = {
 			{ after: true, before: true },
 		],
 		'linebreak-style': [ 'error', 'unix' ],
+		'lines-around-comment': [ 'error', {
+			allowArrayStart: true,
+			allowBlockStart: true,
+			allowClassStart: true,
+			allowObjectStart: true,
+			beforeBlockComment: true,
+			beforeLineComment: true,
+		} ],
 		'no-console': [ 'error', { allow: [ 'warn', 'error' ] } ],
 		'no-mixed-spaces-and-tabs': [ 'error' ],
 		'no-multi-spaces': [
 			'error',
-			{ ignoreEOLComments: true },
+			{
+				ignoreEOLComments: true,
+				exceptions: {
+					AssignmentPattern: true,
+					AssignmentExpression: true,
+					VariableDeclaration: true,
+					VariableDeclarator: true,
+				},
+			},
 		],
 		'no-multiple-empty-lines': [
 			'error',
@@ -94,6 +117,7 @@ module.exports = {
 		'object-shorthand': [ 'error', 'always' ],
 		'one-var': [ 'error', 'never' ],
 		'prefer-const': 'error',
+		'prefer-object-spread': 'error',
 		'quote-props': [ 'error', 'as-needed' ],
 		quotes: [ 'error', 'single' ],
 		'react-hooks/exhaustive-deps': 'error',
@@ -125,10 +149,19 @@ module.exports = {
 				reservedFirst: false,
 			},
 		],
-		'react/jsx-tag-spacing': 'error',
+		'react/jsx-tag-spacing': [ 'error', {
+			afterOpening: 'never',
+			beforeClosing: 'never',
+			beforeSelfClosing: 'always',
+			closingSlash: 'never',
+		} ],
 		'react/jsx-wrap-multilines': 'error',
 		'react/prop-types': 'off',
 		'react/react-in-jsx-scope': 'off',
+		'react/self-closing-comp': [ 'error', {
+			component: true,
+			html: true,
+		} ],
 		'semi-spacing': [
 			'error',
 			{ before: false, after: true },

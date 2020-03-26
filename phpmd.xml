@@ -31,6 +31,6 @@
 	<rule ref="rulesets/unusedcode.xml/UnusedPrivateMethod"/>
 
 	<exclude-pattern>vendor/**</exclude-pattern>
-	<exclude-pattern>public/wp/**</exclude-pattern>
-	<exclude-pattern>public/app/plugins/**</exclude-pattern>
+	<exclude-pattern>web/wp/**</exclude-pattern>
+	<exclude-pattern>web/app/plugins/**</exclude-pattern>
 </ruleset>

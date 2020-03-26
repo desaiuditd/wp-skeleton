@@ -1,5 +1,5 @@
 # wp-skeleton
-A skeleton repo as a starter for WordPress websites using Bedrock. https://roots.io/bedrock/
+A skeleton repo as a starter for WordPress websites using [Bedrock](https://roots.io/bedrock/) and [Lando](https://lando.dev/).
 
 # Bedrock
 
@@ -20,6 +20,15 @@ Much of the philosophy behind Bedrock is inspired by the [Twelve-Factor App](htt
 
 Bedrock documentation is available at [https://roots.io/bedrock/docs/](https://roots.io/bedrock/docs/).
 
+# Lando
+
+Lando vastly simplifies local development and DevOps so you can focus on what's important;
+delivering value to your clients and customers. And it's free and Open Source.
+
+## Lando Documentation
+
+Lando documentation is available at [https://docs.lando.dev/](https://docs.lando.dev/).
+
 # How to use this skeleton
 
 ```bash
@@ -31,11 +40,9 @@ rm -rf wps
 
 # Prerequisite
 
-## Homebrew
+## MacOS
 
-Install Homebrew in order to install nodenv.
-
-### MacOS
+### Homebrew
 
 ```bash
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -43,62 +50,111 @@ Install Homebrew in order to install nodenv.
 
 Follow the instructions from here - https://docs.brew.sh/Installation
 
-### Ubuntu
+### Docker
 
 ```bash
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
-echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.profile
-eval $($(brew --prefix)/bin/brew shellenv)
+brew cask install docker
 ```
 
-Follow the instructions from here - https://docs.brew.sh/Homebrew-on-Linux
-
-## NodeJS
-
-Install NodeJS via nodenv - Node Version Manager. https://github.com/nodenv/nodenv
-
-Follow the instructions from here - https://github.com/nodenv/nodenv#installation
+### Lando
 
 ```bash
-brew install nodenv
+brew cask install lando
 ```
 
-## Composer
+This will eventually install Docker as well, as a dependency, if it's already not installed.
 
-Refer this installation guide for Composer - https://getcomposer.org/doc/00-intro.md#installation-linux-unix-macos
+Follow the instructions from here - https://docs.lando.dev/basics/installation.html#macos
 
-First, download the `composer.phar`
-
-And then install it globally on your machine.
+Enable the SSL in local.
 
 ```bash
-mv composer.phar /usr/local/bin/composer
+sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain ~/.lando/certs/lndo.site.pem
+```
+
+## Ubuntu
+
+### Docker
+
+Install Docker Desktop (Community Edition) by following instructions from its official website https://docs.docker.com/install/linux/docker-ce/ubuntu/.
+
+```bash
+# Update the package manager.
+sudo apt-get update
+
+# Install dependencies.
+sudo apt-get install \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    gnupg-agent \
+    software-properties-common \
+	-y
+
+# Add Docker GPG Key.
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+
+# Verify Docker GPG Key.
+sudo apt-key fingerprint 0EBFCD88
+
+# Add Docker repo.
+sudo add-apt-repository \
+   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+   $(lsb_release -cs) \
+   stable"
+
+# Update the package manager.
+sudo apt-get update
+
+# Install docker
+sudo apt-get install docker-ce docker-ce-cli containerd.io -y
+```
+
+### Lando
+
+Follow the instructions from [here](https://docs.lando.dev/basics/installation.html#linux) and install Lando.
+
+- Download the `*.deb` file of the latest version from the [Github releases page](https://github.com/lando/lando/releases).
+- Run the required package installation command for your os eg `sudo dpkg -i lando-stable.deb`.
+	- Note that you may also be able to just double click on the package and install via your distributions "Software Center" or equivalent.
+- Enable the SSL in local.
+
+```bash
+sudo cp -r ~/.lando/certs/lndo.site.pem /usr/local/share/ca-certificates/lndo.site.pem
+sudo cp -r ~/.lando/certs/lndo.site.crt /usr/local/share/ca-certificates/lndo.site.crt
+sudo update-ca-certificates
 ```
 
 # Local Development
 
-- Install composer dependencies. `composer install`
-- Install npm package dependencies. `npm install`
-- Install [Local by Flywheel](https://localbyflywheel.com/).
-- Create a new site in Local by Flywheel. [Refer](https://roots.io/guides/local-bedrock-development-with-local-by-flywheel/)
-- Delete everything inside the `public` folder under Local Sites.
-	- `rm -rf ~/Local\ Sites/example/app/public/*`
-- Deploy this git repository under `app` folder.
-	- `~/Local\ Sites/example/app/`
-	- Use [Deploy Reloaded](https://marketplace.visualstudio.com/items?itemName=mkloubert.vscode-deploy-reloaded) VSCode extension for this.
-	- Use [this config](https://gist.github.com/desaiuditd/88d99e41a895d839291d65ad86d1eea7) to deploy the code.
 - Create `.env` file for the project.
 	- `cp .env.example .env`
-	- Change these values, if needed. `DB_NAME`, `DB_USER`, `DB_PASSWORD`, `DB_HOST`. (Optional, in case of default setup with Local by Flywheel)
-	- Set WP_HOME as `https://example.test`
+	- Change these values, if needed. `DB_NAME`, `DB_USER`, `DB_PASSWORD`, `DB_HOST`, `WP_HOME`. (Optional, in case of default setup with Lando)
 	- Generate secretes with [WordPress salts generator](https://roots.io/salts.html) provided by Roots.
 		- `AUTH_KEY`, `SECURE_AUTH_KEY`, `LOGGED_IN_KEY`, `NONCE_KEY`, `AUTH_SALT`, `SECURE_AUTH_SALT`, `LOGGED_IN_SALT`, `NONCE_SALT`
-- Restart the site from Local by Flywheel.
-- Access WordPress admin at `https://example.test/wp/wp-admin/`
+- Run `lando start`. Initial start may take some time.
+
+# Local URLs
+
+- WordPress Front-end: https://example.lndo.site
+- WordPress Admin: https://example.lndo.site/wp/wp-admin/
+- phpMyAdmin: https://db-example.lndo.site
+
+# SSH into Containers
+
+- WordPress App Container: `lando ssh -s appserver`
+- Node Container for building assets: `lando ssh -s assets`
+- Database Container: `lando ssh -s database`
+
+# Check Linting in local.
+
+- Lint JS/CSS/SCSS files in local: `lando npm run lint`
+- Lint PHP files in local (phpcs): `lando ssh -s appserver -c "./vendor/bin/phpcs -p -s -v --standard=phpcs.xml --extensions=php ./web/app ./config"`
+- Scan phpmd in local: `lando ssh -s appserver -c "./vendor/bin/phpmd web/app,config text phpmd.xml --suffixes php"`
 
 # Themes
 
-Add theme(s) in `public/app/themes/` as you would for a normal WordPress site.
+Add theme(s) in `web/app/themes/` as you would for a normal WordPress site.
 
 Also, override the `WP_DEFAULT_THEME` constant to set the theme directory in `config/application.php`
 
@@ -121,6 +177,10 @@ Config::define( 'WP_CONTENT_URL', Config::get( 'WP_HOME' ) . Config::get( 'CONTE
 
 # Plugins
 
-Add plugin(s) in `public/app/mu-plugins/` as you would for a normal WordPress site.
+Add plugin(s) in `web/app/mu-plugins/` as you would for a normal WordPress site.
 
 Also, whitelist the plugin in `.gitignore` file, so that you can commit the files into the repo.
+
+# ToDO
+
+- husky/lint-staged and pre-commit hooks are probably not working.

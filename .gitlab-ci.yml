@@ -1,13 +1,18 @@
-image: php:7.3
+image: php:7.4
 
 before_script:
 # Install composer & nodejs dependencies
+- curl -sL https://deb.nodesource.com/setup_12.x | bash -
 - apt-get update && apt-get install -y wget git zip unzip nodejs
 - wget https://composer.github.io/installer.sig -O - -q | tr -d '\n' > installer.sig
 - php -r "copy( 'https://getcomposer.org/installer', 'composer-setup.php' );"
 - php -r "if ( hash_file( 'SHA384', 'composer-setup.php' ) === file_get_contents( 'installer.sig' ) ) { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink( 'composer-setup.php' ); } echo PHP_EOL;"
 - php composer-setup.php
 - php -r "unlink( 'composer-setup.php' ); unlink( 'installer.sig' );"
+- php -v
+- php composer.phar -V
+- node -v
+- npm -v
 - php composer.phar install
 - npm install
 
@@ -26,4 +31,9 @@ stages:
 lint:
   stage: lint
   script:
-  - make lint
+  # Lint assets (JS + CSS + SCSS)
+  - npm run lint
+  # Scan phpmd
+  - ./vendor/bin/phpmd web/app,config text phpmd.xml --suffixes php
+  # Lint php (phpcs)
+  - ./vendor/bin/phpcs -p -s -v --standard=phpcs.xml --extensions=php ./web/app ./config

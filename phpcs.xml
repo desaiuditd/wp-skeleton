@@ -7,19 +7,22 @@
 	<description>WordPress Skeleton Coding Standards</description>
 
 	<!-- Exclude WP Core folders and files from being checked. -->
-	<exclude-pattern>public/wp/*</exclude-pattern>
+	<exclude-pattern>web/wp/*</exclude-pattern>
 
 	<!-- Exclude the Composer Vendor directory. -->
 	<exclude-pattern>vendor</exclude-pattern>
 
 	<!-- Exclude the Plugins directory. -->
-	<exclude-pattern>public/app/plugins</exclude-pattern>
+	<exclude-pattern>web/app/plugins</exclude-pattern>
 
 	<!-- Exclude the Node Modules directory. -->
 	<exclude-pattern>node_modules/*</exclude-pattern>
 
 	<!-- Exclude minified Javascript files. -->
 	<exclude-pattern>*.min.js</exclude-pattern>
+
+	<!-- Exclude db.php -->
+	<exclude-pattern>db.php</exclude-pattern>
 
 	<!-- Show colors in console -->
 	<arg value="-colors"/>
@@ -45,6 +48,7 @@
 		<exclude name="WordPress.WhiteSpace.ControlStructureSpacing"/>
 		<exclude name="WordPress.Security.EscapeOutput"/>
 		-->
+		<exclude name="WordPress.PHP.DisallowShortTernary.Found" />
 	</rule>
 
 	<!-- Let's also check that everything is properly documented. -->
@@ -53,6 +57,23 @@
 	<!-- Add in some extra rules from other standards. -->
 	<rule ref="Generic.CodeAnalysis.UnusedFunctionParameter.FoundAfterLastUsed"/>
 	<rule ref="Generic.Commenting.Todo"/>
+	<rule ref="Generic">
+		<exclude name="Generic.Arrays.DisallowShortArraySyntax.Found" />
+		<exclude name="Generic.WhiteSpace.DisallowTabIndent.TabsUsed" />
+		<exclude name="Generic.Files.EndFileNoNewline.Found" />
+		<exclude name="Generic.PHP.UpperCaseConstant.Found" />
+		<exclude name="Generic.Files.LineLength.MaxExceeded" />
+		<exclude name="Generic.ControlStructures.DisallowYodaConditions.Found" />
+		<exclude name="Generic.Formatting.NoSpaceAfterCast.SpaceFound" />
+		<exclude name="Generic.Commenting.DocComment.ContentBeforeClose" />
+		<exclude name="Generic.Commenting.DocComment.MissingShort" />
+		<exclude name="Generic.Commenting.DocComment.ContentAfterOpen" />
+		<exclude name="Generic.PHP.RequireStrictTypes.MissingDeclaration" />
+		<exclude name="Generic.PHP.ClosingPHPTag.NotFound" />
+		<exclude name="Generic.Functions.OpeningFunctionBraceBsdAllman.BraceOnSameLine" />
+		<exclude name="Generic.NamingConventions.CamelCapsFunctionName.ScopeNotCamelCaps" />
+		<exclude name="Generic.NamingConventions.CamelCapsFunctionName.NotCamelCaps" />
+	</rule>
 
 	<!-- Check for PHP cross-version compatibility. -->
 	<!--

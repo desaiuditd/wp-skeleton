@@ -1,4 +1,3 @@
-const fs = require( 'fs' );
 const merge = require( 'webpack-merge' );
 const path = require( 'path' );
 const webpack = require( 'webpack' );
@@ -6,7 +5,7 @@ const CopyWebpackPlugin = require( 'copy-webpack-plugin' );
 const MiniCssExtractPlugin = require( 'mini-css-extract-plugin' );
 
 // The base directory, an absolute path, for resolving entry points.
-const context = path.resolve( __dirname, 'public/app/mu-plugins' );
+const context = path.resolve( __dirname, 'web/app/mu-plugins' );
 
 // Define wp deps.
 const wpExternals = {
@@ -51,6 +50,7 @@ const wpExternals = {
 	'@wordpress/url': 'wp.url',
 	'@wordpress/viewport': 'wp.viewport',
 	'@wordpress/wordcount': 'wp.wordcount',
+
 	// Below packages are excluded, because WordPress/Gutenberg does not expose them globally under wp object.
 	// '@wordpress/annotations': 'wp.annotations',
 	// '@wordpress/block-serialization-spec-parser': 'wp.blockSerializationSpecParser',
@@ -75,7 +75,7 @@ const externals = {
  * Example:
  * 'example-asset': './example/asset/bundle/path/js/script',
  */
-const bundleMap = {};
+const bundleMap = { 'tp-example-mu-plugin': './tp-example-mu-plugin/assets/src/js/' };
 
 module.exports = function ( env, argv ) {
 	const isDev = argv.mode === 'development';
@@ -84,7 +84,8 @@ module.exports = function ( env, argv ) {
 		context,
 		entry: bundleMap,
 		output: {
-			path: path.resolve( __dirname, 'public/dist' ),
+			path: path.resolve( __dirname, 'web/dist' ),
+
 			// The filename of the entry chunk as relative path inside the output.path directory.
 			filename: '[name].js',
 		},
@@ -158,16 +159,12 @@ module.exports = function ( env, argv ) {
 				new StyleLintPlugin( { syntax: 'scss' } ),
 			],
 			devServer: {
-				host: 'ink-authoring-local.ffx.io',
+				host: '0.0.0.0',
 				port: 8080,
 				inline: false,
 				hot: false,
 				watchOptions: { poll: false },
 				disableHostCheck: true,
-				https: {
-					key: fs.readFileSync( path.resolve( __dirname + '/../../ssl/server.key' ) ),
-					cert: fs.readFileSync( path.resolve( __dirname + '/../../ssl/server.crt' ) ),
-				},
 			},
 			performance: {
 				maxAssetSize: 1000000, // 1 mB.

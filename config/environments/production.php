@@ -13,3 +13,7 @@ use Roots\WPConfig\Config;
  * Example: `Config::define('WP_DEBUG', true);`
  * Example: `Config::define('DISALLOW_FILE_MODS', false);`
  */
+
+ // wp-skeleton Constants.
+Config::define( 'WPS_ASSETS_URL', '/dist' );
+Config::define( 'WPS_PREFERRED_DOMAIN', 'wp-skeleton.com' );

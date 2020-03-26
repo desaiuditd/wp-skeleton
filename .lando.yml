@@ -1,0 +1,38 @@
+name: wp-skeleton
+recipe: wordpress
+config:
+  php: 7.4
+  xdebug: true
+  via: nginx
+  webroot: web
+  database: mariadb:10.4
+services:
+  appserver:
+    build:
+      - composer install
+    run:
+      - bash ./.lando/events/post-start/appserver.sh
+  assets:
+    type: node:12.16.1-buster
+    build:
+      - npm install
+    command: npm start
+    port: 8080
+  pma:
+    type: phpmyadmin
+    hosts:
+      - database
+excludes:
+  - vendor
+  - node_modules
+  - web/dist
+  - web/wp
+  - web/app/uploads
+proxy:
+  assets:
+    - assets-wp-skeleton.lndo.site:8080
+  pma:
+    - db-wp-skeleton.lndo.site
+tooling:
+  npm:
+    service: assets

@@ -14,7 +14,7 @@ use Roots\WPConfig\Config;
 $root_dir = dirname( __DIR__ );
 
 /** @var string Document Root */
-$webroot_dir = $root_dir . '/public';
+$webroot_dir = $root_dir . '/web';
 
 /**
  * Expose global env() function from oscarotero/env
@@ -101,12 +101,17 @@ Config::define( 'WP_DEBUG_DISPLAY', false );
 Config::define( 'SCRIPT_DEBUG', false );
 ini_set( 'display_errors', '0' ); // phpcs:ignore WordPress.PHP.IniSet.display_errors_Blacklisted
 
+// Force HTTPS (See notes re SSL here: https://codex.wordpress.org/Administration_Over_SSL).
+define( 'FORCE_SSL_ADMIN', true );
+
 /**
  * Allow WordPress to detect HTTPS when used behind a reverse proxy or a load balancer
  * See https://codex.wordpress.org/Function_Reference/is_ssl#Notes
  */
+$schema = 'http://';
 if ( isset( $_SERVER['HTTP_X_FORWARDED_PROTO'] ) && 'https' === $_SERVER['HTTP_X_FORWARDED_PROTO'] ) {
 	$_SERVER['HTTPS'] = 'on';
+	$schema = 'https://';
 }
 
 $env_config = __DIR__ . '/environments/' . WP_ENV . '.php';
@@ -114,6 +119,12 @@ $env_config = __DIR__ . '/environments/' . WP_ENV . '.php';
 if ( file_exists( $env_config ) ) {
 	require_once $env_config;
 }
+
+// Infer Assets URL.
+$wp_url = sprintf( '%s%s', $schema, $_SERVER['HTTP_HOST'] ?? Config::get( 'WPS_PREFERRED_DOMAIN' ) );
+$assets_url  = Config::get( 'WPS_ASSETS_URL' );
+$is_absolute = preg_match( '/^https?:\/\//i', $assets_url );
+Config::define( 'WPS_ASSETS_URL', $is_absolute ? $assets_url : "{$wp_url}{$assets_url}" );
 
 Config::apply();
 

@@ -17,9 +17,10 @@ if ( ! is_blog_installed() ) {
 
 /**
  * Class Autoloader
+ *
  * @package Roots\Bedrock
- * @author Roots
- * @link https://roots.io/
+ * @author  Roots
+ * @link    https://roots.io/
  */
 class Autoloader {
 	/** @var static Singleton instance */
@@ -82,9 +83,12 @@ class Autoloader {
 
 	/**
 	 * Filter show_advanced_plugins to display the auto-loaded plugins.
+	 *
 	 * @param $show bool Whether to show the advanced plugins for the specified plugin type.
 	 * @param $type string The plugin type, i.e., `mustuse` or `dropins`
+	 *
 	 * @return bool We return `false` to prevent WordPress from overriding our work
+	 *
 	 * {@internal We add the plugin details ourselves, so we return false to disable the filter.}
 	 */
 	public function show_in_admin( $show, $type ) {

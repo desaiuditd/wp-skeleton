@@ -16,3 +16,7 @@ ini_set( 'display_errors', '1' ); // phpcs:ignore WordPress.PHP.IniSet.display_e
 
 // Enable plugin and theme updates and installation from the admin
 Config::define( 'DISALLOW_FILE_MODS', false );
+
+// wp-skeleton Constants.
+Config::define( 'WPS_ASSETS_URL', 'https://assets-wp-skeleton.lndo.site' );
+Config::define( 'WPS_PREFERRED_DOMAIN', 'wp-skeleton.lndo.site' );
