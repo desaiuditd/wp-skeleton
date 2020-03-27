@@ -1,4 +1,4 @@
-name: wp-skeleton CI
+name: Build
 
 on:
   push:
