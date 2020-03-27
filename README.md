@@ -1,6 +1,8 @@
 # wp-skeleton
 A skeleton repo as a starter for WordPress websites using [Bedrock](https://roots.io/bedrock/) and [Lando](https://lando.dev/).
 
+![wp-skeleton CI](https://github.com/desaiuditd/wp-skeleton/workflows/wp-skeleton%20CI/badge.svg)
+
 # Bedrock
 
 Bedrock is a modern WordPress stack that helps you get started with the best development tools and project structure.
