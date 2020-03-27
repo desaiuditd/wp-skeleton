@@ -136,9 +136,9 @@ sudo update-ca-certificates
 
 # Local URLs
 
-- WordPress Front-end: https://example.lndo.site
-- WordPress Admin: https://example.lndo.site/wp/wp-admin/
-- phpMyAdmin: https://db-example.lndo.site
+- WordPress Front-end: https://wp-skeleton.lndo.site
+- WordPress Admin: https://wp-skeleton.lndo.site/wp/wp-admin/
+- phpMyAdmin: https://db-wp-skeleton.lndo.site
 
 # SSH into Containers
 

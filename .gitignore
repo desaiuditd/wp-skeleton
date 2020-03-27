@@ -5,7 +5,7 @@ web/app/mu-plugins/*/
 web/app/upgrade
 web/app/uploads/*
 !web/app/uploads/.gitkeep
-!web/app/mu-plugins/tp-example-mu-plugin
+!web/app/mu-plugins/wps-example-mu-plugin
 db.php
 
 # WordPress

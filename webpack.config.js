@@ -75,7 +75,7 @@ const externals = {
  * Example:
  * 'example-asset': './example/asset/bundle/path/js/script',
  */
-const bundleMap = { 'tp-example-mu-plugin': './tp-example-mu-plugin/assets/src/js/' };
+const bundleMap = { 'wps-example-mu-plugin': './wps-example-mu-plugin/assets/src/js/' };
 
 module.exports = function ( env, argv ) {
 	const isDev = argv.mode === 'development';
