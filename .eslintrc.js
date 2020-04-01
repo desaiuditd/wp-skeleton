@@ -102,6 +102,7 @@ module.exports = {
 			},
 		],
 		'no-var': 'error',
+		'multiline-comment-style': 'error',
 		'object-curly-newline': [
 			'error',
 			{ multiline: true },

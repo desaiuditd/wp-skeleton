@@ -51,11 +51,13 @@ const wpExternals = {
 	'@wordpress/viewport': 'wp.viewport',
 	'@wordpress/wordcount': 'wp.wordcount',
 
-	// Below packages are excluded, because WordPress/Gutenberg does not expose them globally under wp object.
-	// '@wordpress/annotations': 'wp.annotations',
-	// '@wordpress/block-serialization-spec-parser': 'wp.blockSerializationSpecParser',
-	// '@wordpress/edit-widgets: 'wp.editWidgets',
-	// '@wordpress/list-reusable-blocks: 'wp.listReusableBlocks',
+	/*
+	 * Below packages are excluded, because WordPress/Gutenberg does not expose them globally under wp object.
+	 * '@wordpress/annotations': 'wp.annotations',
+	 * '@wordpress/block-serialization-spec-parser': 'wp.blockSerializationSpecParser',
+	 * '@wordpress/edit-widgets: 'wp.editWidgets',
+	 * '@wordpress/list-reusable-blocks: 'wp.listReusableBlocks',
+	 */
 };
 
 // Define third party dependencies.
