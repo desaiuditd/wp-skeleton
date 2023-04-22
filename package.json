@@ -24,7 +24,7 @@
     "@babel/plugin-proposal-optional-chaining": "^7.6.0",
     "@babel/preset-env": "^7.6.3",
     "@babel/preset-react": "^7.6.3",
-    "autoprefixer": "^9.6.4",
+    "autoprefixer": "^9.8.8",
     "babel-core": "^6.26.3",
     "babel-loader": "^8.0.6",
     "babel-plugin-styled-components": "^1.10.6",
