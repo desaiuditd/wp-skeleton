@@ -30,7 +30,7 @@
     "babel-plugin-styled-components": "^2.1.1",
     "classnames": "^2.2.6",
     "copy-webpack-plugin": "^5.0.4",
-    "css-loader": "^3.2.0",
+    "css-loader": "^5.2.7",
     "file-loader": "^6.2.0",
     "mini-css-extract-plugin": "^0.8.0",
     "node-sass": "^7.0.0",
