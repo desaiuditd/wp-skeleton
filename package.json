@@ -54,7 +54,7 @@
     "eslint-plugin-react": "^7.16.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "husky": "^4.3.8",
-    "lint-staged": "^10.0.9",
+    "lint-staged": "^14.0.1",
     "stylelint": "^15.10.1",
     "stylelint-config-wordpress": "^15.0.0",
     "stylelint-webpack-plugin": "^2.5.0",
