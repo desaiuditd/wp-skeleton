@@ -1,6 +1,8 @@
 # wp-skeleton
 A skeleton repo as a starter for WordPress websites using [Bedrock](https://roots.io/bedrock/) and [Lando](https://lando.dev/).
 
+Project not maintained actively.
+
 ![Build](https://github.com/desaiuditd/wp-skeleton/workflows/Build/badge.svg)
 
 # Bedrock
