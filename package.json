@@ -58,6 +58,6 @@
     "stylelint": "^15.11.0",
     "stylelint-config-wordpress": "^17.0.0",
     "stylelint-webpack-plugin": "^2.5.0",
-    "webpack-dev-server": "^4.15.1"
+    "webpack-dev-server": "^5.2.1"
   }
 }
