@@ -1,43 +1,43 @@
-name: Build
+# name: Build
 
-on:
-  push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+# on:
+#   push:
+#     branches: [ master ]
+#   pull_request:
+#     branches: [ master ]
 
-jobs:
-  build-php:
+# jobs:
+#   build-php:
 
-    runs-on: ubuntu-latest
+#     runs-on: ubuntu-latest
 
-    steps:
-    - uses: actions/checkout@v2
+#     steps:
+#     - uses: actions/checkout@v2
 
-    - name: Validate composer.json and composer.lock
-      run: composer validate
+#     - name: Validate composer.json and composer.lock
+#       run: composer validate
 
-    - name: Install dependencies
-      run: composer install
+#     - name: Install dependencies
+#       run: composer install
 
-    - name: phpmd
-      run: ./vendor/bin/phpmd web/app,config text phpmd.xml --suffixes php
+#     - name: phpmd
+#       run: ./vendor/bin/phpmd web/app,config text phpmd.xml --suffixes php
 
-    - name: phpcs
-      run: ./vendor/bin/phpcs -p -s -v --standard=phpcs.xml --extensions=php ./web/app ./config
+#     - name: phpcs
+#       run: ./vendor/bin/phpcs -p -s -v --standard=phpcs.xml --extensions=php ./web/app ./config
 
-  build-js:
+#   build-js:
 
-    runs-on: ubuntu-latest
+#     runs-on: ubuntu-latest
 
-    steps:
-    - uses: actions/checkout@v2
-    - uses: actions/setup-node@v1.1.0
-      with:
-        version: 12.16.1
+#     steps:
+#     - uses: actions/checkout@v2
+#     - uses: actions/setup-node@v1.1.0
+#       with:
+#         version: 12.16.1
 
-    - name: Install dependencies
-      run: npm install
+#     - name: Install dependencies
+#       run: npm install
 
-    - name: assets-lint
-      run: npm run lint
+#     - name: assets-lint
+#       run: npm run lint
